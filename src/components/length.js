@@ -20,12 +20,18 @@ const iconStyle = {
   marginTop: "9px"
 };
 
-const SessionLength = ({ classes, sessionLabel }) => {
+const Length = ({
+  classes,
+  lengthLabel,
+  lengthValue,
+  onIncrement,
+  onDecrement
+}) => {
   return (
     <div
       style={{ justifyContent: "center", textAlign: "center", margin: "1rem" }}
     >
-      <ClockElementLabel labelText={`${sessionLabel} Length`} />
+      <ClockElementLabel labelText={`${lengthLabel} Length`} />
       <div
         style={{
           display: "flex",
@@ -34,15 +40,15 @@ const SessionLength = ({ classes, sessionLabel }) => {
         }}
       >
         <IconButton
-          aria-label={`Decrement ${sessionLabel} Length`}
+          aria-label={`Decrement ${lengthLabel} Length`}
           style={iconStyle}
+          onClick={onDecrement}
         >
           <RemoveCircleOutline />
         </IconButton>
 
         <TextField
           disabled
-          defaultValue="25"
           margin="normal"
           variant="outlined"
           InputProps={{
@@ -50,10 +56,12 @@ const SessionLength = ({ classes, sessionLabel }) => {
               input: classes.input
             }
           }}
+          value={lengthValue}
         />
         <IconButton
-          aria-label={`Increment ${sessionLabel} Length`}
+          aria-label={`Increment ${lengthLabel} Length`}
           style={iconStyle}
+          onClick={onIncrement}
         >
           <AddCircleOutline />
         </IconButton>
@@ -62,9 +70,12 @@ const SessionLength = ({ classes, sessionLabel }) => {
   );
 };
 
-SessionLength.propTypes = {
+Length.propTypes = {
   classes: PropTypes.object.isRequired,
-  sessionLabel: PropTypes.string.isRequired
+  lengthLabel: PropTypes.string.isRequired,
+  lengthValue: PropTypes.number.isRequired,
+  onIncrement: PropTypes.func.isRequired,
+  onDecrement: PropTypes.func.isRequired
 };
 
-export default withStyles(classes)(SessionLength);
+export default withStyles(classes)(Length);

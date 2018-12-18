@@ -7,7 +7,9 @@ import Divider from "@material-ui/core/Divider";
 import Reset from "./reset";
 import PlayPause from "./play-pause";
 import Session from "./session";
-import SessionLength from "./session-length";
+import Length from "./length";
+import WithBreakLength from "./with-break-length";
+import WithSessionLength from "./with-session-length";
 
 class PomodoroClock extends Component {
   render() {
@@ -18,8 +20,36 @@ class PomodoroClock extends Component {
           <Divider />
           <CardContent>
             <div style={{ display: "flex" }}>
-              <SessionLength sessionLabel="Session" />
-              <SessionLength sessionLabel="Break" />
+              <WithSessionLength
+                render={(
+                  lengthLabel,
+                  lengthValue,
+                  handleIncrement,
+                  handleDecrement
+                ) => (
+                  <Length
+                    lengthLabel={lengthLabel}
+                    lengthValue={lengthValue}
+                    onIncrement={handleIncrement}
+                    onDecrement={handleDecrement}
+                  />
+                )}
+              />
+              <WithBreakLength
+                render={(
+                  lengthLabel,
+                  lengthValue,
+                  handleIncrement,
+                  handleDecrement
+                ) => (
+                  <Length
+                    lengthLabel={lengthLabel}
+                    lengthValue={lengthValue}
+                    onIncrement={handleIncrement}
+                    onDecrement={handleDecrement}
+                  />
+                )}
+              />
             </div>
             <Divider />
             <Session />
