@@ -34,11 +34,12 @@ const SessionLength = ({ classes, sessionLabel }) => {
         }}
       >
         <IconButton
-          aria-label={`Increment ${sessionLabel} Length`}
+          aria-label={`Decrement ${sessionLabel} Length`}
           style={iconStyle}
         >
-          <AddCircleOutline />
+          <RemoveCircleOutline />
         </IconButton>
+
         <TextField
           disabled
           defaultValue="25"
@@ -51,10 +52,10 @@ const SessionLength = ({ classes, sessionLabel }) => {
           }}
         />
         <IconButton
-          aria-label={`Decrement ${sessionLabel} Length`}
+          aria-label={`Increment ${sessionLabel} Length`}
           style={iconStyle}
         >
-          <RemoveCircleOutline />
+          <AddCircleOutline />
         </IconButton>
       </div>
     </div>
