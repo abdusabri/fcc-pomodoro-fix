@@ -8,13 +8,21 @@ import {
 } from "../actions/break-actions";
 
 const WithBreakLength = props => {
+  const handleIncrement = () => {
+    props.incrementBreakLength(props.breakLength);
+  };
+
+  const handleDecrement = () => {
+    props.decrementBreakLength(props.breakLength);
+  };
+
   return (
     <React.Fragment>
       {props.render(
         "Break",
         props.breakLength,
-        props.incrementBreakLength,
-        props.decrementBreakLength
+        handleIncrement,
+        handleDecrement
       )}
     </React.Fragment>
   );

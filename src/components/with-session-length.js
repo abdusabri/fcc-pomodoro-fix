@@ -8,13 +8,21 @@ import {
 } from "../actions/session-actions";
 
 const WithSessionLength = props => {
+  const handleIncrement = () => {
+    props.incrementSessionLength(props.sessionLength);
+  };
+
+  const handleDecrement = () => {
+    props.decrementSessionLength(props.sessionLength);
+  };
+
   return (
     <React.Fragment>
       {props.render(
         "Session",
         props.sessionLength,
-        props.incrementSessionLength,
-        props.decrementSessionLength
+        handleIncrement,
+        handleDecrement
       )}
     </React.Fragment>
   );
