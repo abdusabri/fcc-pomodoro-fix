@@ -1,6 +1,10 @@
 import { INCREMENT_SESSION, DECREMENT_SESSION } from "../constants";
+import initialState from "../store/initial-state";
 
-export default function sessionLength(state = 5, action) {
+export default function sessionLength(
+  state = initialState.sessionLength,
+  action
+) {
   switch (action.type) {
     case INCREMENT_SESSION:
       return action.payload;

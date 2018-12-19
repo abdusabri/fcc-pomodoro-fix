@@ -1,6 +1,7 @@
 import { INCREMENT_BREAK, DECREMENT_BREAK } from "../constants";
+import initialState from "../store/initial-state";
 
-export default function breakLength(state = 5, action) {
+export default function breakLength(state = initialState.breakLength, action) {
   switch (action.type) {
     case INCREMENT_BREAK:
       return action.payload;
