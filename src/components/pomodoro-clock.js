@@ -4,8 +4,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardActions from "@material-ui/core/CardActions";
 import Divider from "@material-ui/core/Divider";
-import Reset from "./reset";
-import PlayPause from "./play-pause";
+import ClockControls from "./clock-controls";
 import Session from "./session";
 import Length from "./length";
 import WithBreakLength from "./with-break-length";
@@ -64,8 +63,7 @@ class PomodoroClock extends Component {
           </CardContent>
           <Divider />
           <CardActions style={{ justifyContent: "center" }}>
-            <PlayPause />
-            <Reset />
+            <ClockControls />
           </CardActions>
         </Card>
       </div>

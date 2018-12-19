@@ -3,6 +3,7 @@ export default {
   sessionLength: 25,
   clock: {
     activeSession: "Session",
-    timeLeft: 1500000
+    timeLeft: 1500000,
+    isPaused: true
   }
 };
