@@ -10,6 +10,7 @@ import Session from "./session";
 import Length from "./length";
 import WithBreakLength from "./with-break-length";
 import WithSessionLength from "./with-session-length";
+import WithClock from "./with-clock";
 
 class PomodoroClock extends Component {
   render() {
@@ -52,7 +53,14 @@ class PomodoroClock extends Component {
               />
             </div>
             <Divider />
-            <Session />
+            <WithClock
+              render={(activeSessionLabel, timeLeft) => (
+                <Session
+                  activeSessionLabel={activeSessionLabel}
+                  timeLeft={timeLeft}
+                />
+              )}
+            />
           </CardContent>
           <Divider />
           <CardActions style={{ justifyContent: "center" }}>

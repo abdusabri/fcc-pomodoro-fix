@@ -12,15 +12,14 @@ const classes = {
   }
 };
 
-const Session = ({ classes }) => {
+const Session = ({ classes, activeSessionLabel, timeLeft }) => {
   return (
     <div
       style={{ justifyContent: "center", textAlign: "center", margin: "1rem" }}
     >
-      <ClockElementLabel labelText="Session" />
+      <ClockElementLabel labelText={activeSessionLabel} />
       <TextField
         disabled
-        defaultValue="12:37"
         margin="normal"
         variant="outlined"
         InputProps={{
@@ -28,13 +27,16 @@ const Session = ({ classes }) => {
             input: classes.input
           }
         }}
+        value={timeLeft}
       />
     </div>
   );
 };
 
 Session.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  activeSessionLabel: PropTypes.string.isRequired,
+  timeLeft: PropTypes.string.isRequired
 };
 
 export default withStyles(classes)(Session);
