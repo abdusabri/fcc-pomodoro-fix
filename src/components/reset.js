@@ -13,8 +13,6 @@ const Reset = props => {
   );
 };
 
-const mapStateToProps = state => state;
-
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
@@ -25,6 +23,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(Reset);
