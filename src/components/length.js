@@ -31,7 +31,10 @@ const Length = ({
     <div
       style={{ justifyContent: "center", textAlign: "center", margin: "1rem" }}
     >
-      <ClockElementLabel labelText={`${lengthLabel} Length`} />
+      <ClockElementLabel
+        labelText={`${lengthLabel} Length`}
+        labelId={`${lengthLabel.toLowerCase()}-label`}
+      />
       <div
         style={{
           display: "flex",
@@ -43,6 +46,7 @@ const Length = ({
           aria-label={`Decrement ${lengthLabel} Length`}
           style={iconStyle}
           onClick={onDecrement}
+          id={`${lengthLabel.toLowerCase()}-decrement`}
         >
           <RemoveCircleOutline />
         </IconButton>
@@ -57,11 +61,13 @@ const Length = ({
             }
           }}
           value={lengthValue}
+          id={`${lengthLabel.toLowerCase()}-length`}
         />
         <IconButton
           aria-label={`Increment ${lengthLabel} Length`}
           style={iconStyle}
           onClick={onIncrement}
+          id={`${lengthLabel.toLowerCase()}-increment`}
         >
           <AddCircleOutline />
         </IconButton>

@@ -41,6 +41,8 @@ class ClockControls extends Component {
   handleReset = () => {
     this.pauseClock();
     this.props.reset();
+    this.audioRef.currentTime = 0;
+    this.audioRef.pause();
   };
 
   audioRef = null;
@@ -51,6 +53,7 @@ class ClockControls extends Component {
         <IconButton
           aria-label={this.props.isPaused ? "Play" : "Pause"}
           onClick={this.handleButtonClick}
+          id="start_stop"
         >
           {this.props.isPaused ? (
             <PlayArrow fontSize="large" />
@@ -58,7 +61,7 @@ class ClockControls extends Component {
             <Pause fontSize="large" />
           )}
         </IconButton>
-        <IconButton aria-label="Reset" onClick={this.handleReset}>
+        <IconButton aria-label="Reset" onClick={this.handleReset} id="reset">
           <Refresh fontSize="large" />
         </IconButton>
         <audio
