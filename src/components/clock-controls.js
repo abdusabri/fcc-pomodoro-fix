@@ -27,6 +27,10 @@ class ClockControls extends Component {
         this.props.sessionLength,
         this.props.breakLength
       );
+      if (this.props.timeLeft === 0) {
+        this.audioRef.currentTime = 0; // https://stackoverflow.com/questions/13002935/html5-audio-start-over
+        this.audioRef.play();
+      }
     }, 1000);
   };
 
@@ -38,6 +42,8 @@ class ClockControls extends Component {
     this.pauseClock();
     this.props.reset();
   };
+
+  audioRef = null;
 
   render() {
     return (
@@ -55,6 +61,11 @@ class ClockControls extends Component {
         <IconButton aria-label="Reset" onClick={this.handleReset}>
           <Refresh fontSize="large" />
         </IconButton>
+        <audio
+          ref={element => (this.audioRef = element)}
+          id="beep"
+          src="http://soundbible.com/mp3/Fire_pager-jason-1283464858.mp3"
+        />
       </React.Fragment>
     );
   }

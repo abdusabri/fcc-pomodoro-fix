@@ -8,7 +8,7 @@ export const decrementTimeLeft = (timeLeft, sessionLength, breakLength) => {
   if (timeLeft) {
     return {
       type: DECREMENT_TIME_LEFT,
-      payload: timeLeft - 10000
+      payload: timeLeft - 1000
     };
   } else {
     return changeActiveSession(sessionLength, breakLength);
