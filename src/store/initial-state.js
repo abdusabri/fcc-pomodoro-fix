@@ -4,6 +4,7 @@ export default {
   clock: {
     activeSession: "Session",
     timeLeft: 1500000,
-    isPaused: true
+    isPaused: true,
+    isFirstPlay: true
   }
 };
