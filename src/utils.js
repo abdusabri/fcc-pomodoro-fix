@@ -4,7 +4,7 @@ export const getValidatedMaxLength = length => {
 };
 
 export const getValidatedMinLength = length => {
-  const newLength = length < 0 ? 0 : length;
+  const newLength = length < 1 ? 1 : length;
   return newLength;
 };
 
