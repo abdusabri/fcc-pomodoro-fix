@@ -22,7 +22,11 @@ class ClockControls extends Component {
 
   playClock = () => {
     this.interval = setInterval(() => {
-      this.props.decrementTimeLeft(this.props.timeLeft);
+      this.props.decrementTimeLeft(
+        this.props.timeLeft,
+        this.props.sessionLength,
+        this.props.breakLength
+      );
     }, 1000);
   };
 
@@ -56,9 +60,11 @@ class ClockControls extends Component {
   }
 }
 
-const mapStateToProps = ({ clock }) => ({
+const mapStateToProps = ({ clock, sessionLength, breakLength }) => ({
   timeLeft: clock.timeLeft,
-  isPaused: clock.isPaused
+  isPaused: clock.isPaused,
+  sessionLength,
+  breakLength
 });
 
 const mapDispatchToProps = dispatch => {
