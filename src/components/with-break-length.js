@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import {
   incrementBreakLength,
-  decrementBreakLength
+  decrementBreakLength,
+  setBreakLength
 } from "../actions/break-actions";
 
 const WithBreakLength = props => {
@@ -16,13 +17,18 @@ const WithBreakLength = props => {
     props.decrementBreakLength(props.breakLength);
   };
 
+  const handleSet = event => {
+    props.setBreakLength(props.breakLength, event.target.value);
+  };
+
   return (
     <React.Fragment>
       {props.render(
         "Break",
         props.breakLength,
         handleIncrement,
-        handleDecrement
+        handleDecrement,
+        handleSet
       )}
     </React.Fragment>
   );
@@ -40,7 +46,8 @@ const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
       incrementBreakLength,
-      decrementBreakLength
+      decrementBreakLength,
+      setBreakLength
     },
     dispatch
   );

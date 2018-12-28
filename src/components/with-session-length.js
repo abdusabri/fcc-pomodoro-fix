@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import {
   incrementSessionLength,
-  decrementSessionLength
+  decrementSessionLength,
+  setSessionLength
 } from "../actions/session-actions";
 
 const WithSessionLength = props => {
@@ -16,13 +17,18 @@ const WithSessionLength = props => {
     props.decrementSessionLength(props.sessionLength);
   };
 
+  const handleSet = event => {
+    props.setSessionLength(props.sessionLength, event.target.value);
+  };
+
   return (
     <React.Fragment>
       {props.render(
         "Session",
         props.sessionLength,
         handleIncrement,
-        handleDecrement
+        handleDecrement,
+        handleSet
       )}
     </React.Fragment>
   );
@@ -40,7 +46,8 @@ const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
       incrementSessionLength,
-      decrementSessionLength
+      decrementSessionLength,
+      setSessionLength
     },
     dispatch
   );

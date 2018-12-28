@@ -4,6 +4,7 @@ import {
   PLAY_PAUSE_CLOCK,
   INCREMENT_SESSION,
   DECREMENT_SESSION,
+  SET_SESSION,
   CHANGE_ACTIVE_SESSION
 } from "../constants";
 
@@ -17,6 +18,7 @@ export default function clock(state = initialState.clock, action) {
       return { ...state, isPaused: action.payload, isFirstPlay: false };
     case INCREMENT_SESSION:
     case DECREMENT_SESSION:
+    case SET_SESSION:
       if (state.isFirstPlay) {
         return { ...state, timeLeft: action.payload * MIN_TO_MILLISECONDS };
       } else {

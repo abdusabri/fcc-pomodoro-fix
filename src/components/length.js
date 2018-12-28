@@ -25,7 +25,8 @@ const Length = ({
   lengthLabel,
   lengthValue,
   onIncrement,
-  onDecrement
+  onDecrement,
+  onSet
 }) => {
   return (
     <div
@@ -52,7 +53,6 @@ const Length = ({
         </IconButton>
 
         <TextField
-          disabled
           margin="normal"
           variant="outlined"
           InputProps={{
@@ -62,6 +62,7 @@ const Length = ({
           }}
           value={lengthValue}
           id={`${lengthLabel.toLowerCase()}-length`}
+          onChange={onSet}
         />
         <IconButton
           aria-label={`Increment ${lengthLabel} Length`}
@@ -81,7 +82,8 @@ Length.propTypes = {
   lengthLabel: PropTypes.string.isRequired,
   lengthValue: PropTypes.number.isRequired,
   onIncrement: PropTypes.func.isRequired,
-  onDecrement: PropTypes.func.isRequired
+  onDecrement: PropTypes.func.isRequired,
+  onSet: PropTypes.func.isRequired
 };
 
 export default withStyles(classes)(Length);

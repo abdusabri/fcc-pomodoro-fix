@@ -25,13 +25,15 @@ class PomodoroClock extends Component {
                   lengthLabel,
                   lengthValue,
                   handleIncrement,
-                  handleDecrement
+                  handleDecrement,
+                  handleSet
                 ) => (
                   <Length
                     lengthLabel={lengthLabel}
                     lengthValue={lengthValue}
                     onIncrement={handleIncrement}
                     onDecrement={handleDecrement}
+                    onSet={handleSet}
                   />
                 )}
               />
@@ -40,13 +42,15 @@ class PomodoroClock extends Component {
                   lengthLabel,
                   lengthValue,
                   handleIncrement,
-                  handleDecrement
+                  handleDecrement,
+                  handleSet
                 ) => (
                   <Length
                     lengthLabel={lengthLabel}
                     lengthValue={lengthValue}
                     onIncrement={handleIncrement}
                     onDecrement={handleDecrement}
+                    onSet={handleSet}
                   />
                 )}
               />
