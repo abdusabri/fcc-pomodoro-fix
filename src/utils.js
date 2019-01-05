@@ -8,14 +8,14 @@ export const getValidatedMinLength = length => {
   return newLength;
 };
 
-const MAX_TIME_LEFT_VAL = 3600000;
+//const MAX_TIME_LEFT_VAL = 3600000;
 
 export const getFormatedTimeLeft = timeLeft => {
-  if (timeLeft === MAX_TIME_LEFT_VAL) {
-    return "60:00";
-  } else {
-    return new Date(timeLeft).toISOString().slice(14, -5); //https://stackoverflow.com/questions/9763441/milliseconds-to-time-in-javascript/9763769
-  }
+  // if (timeLeft === MAX_TIME_LEFT_VAL) {
+  //   return "60:00";
+  // } else {
+  return new Date(timeLeft).toISOString().slice(14, -5); //https://stackoverflow.com/questions/9763441/milliseconds-to-time-in-javascript/9763769
+  //}
 };
 
 export const getValueToSetLength = (length, value) => {
